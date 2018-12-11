@@ -57,4 +57,7 @@ else
   echo "Not master - we don't need a deployment, just validated the content."
 fi
 
+git branch
+
+echo "Current branch:"
 echo $CURRENT_BRANCH
