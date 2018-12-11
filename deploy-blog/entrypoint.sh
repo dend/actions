@@ -56,4 +56,5 @@ then
 else
   echo "Not master - we don't need a deployment, just validated the content."
 fi
- 
+
+echo $CURRENT_BRANCH
