@@ -10,6 +10,7 @@ LABEL "homepage"="https://dennisdel.com"
 LABEL "maintainer"="Den <d@dsc.ai>"
 
 RUN apt-get update \
+    && apt-get install wget -y \
     && wget -q https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
     && apt-get update \
