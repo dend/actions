@@ -1,9 +1,9 @@
 #!/bin/bash -l
 
-CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
-
 apt-get update
 apt-get install -y python-setuptools wget python-pip git
+
+CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
 
 wget $HUGO_URL
 
