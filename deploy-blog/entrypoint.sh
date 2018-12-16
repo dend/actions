@@ -5,16 +5,16 @@ CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
 apt-get update
 apt-get install -y python-setuptools wget python-pip git
 
-wget https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.deb
+wget $HUGO_URL
 
 yes | dpkg -i hugo*.deb
 
 hugo version
 
 # Make sure we have the latest theme.
-git clone --progress --verbose https://$BLOG_DEPLOY_KEY@github.com/dend/hugo-modern-theme.git dennisdel/themes/modern
+git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$LOCAL_THEME_GIT_URL $LOCAL_THEME_LOCATION
 
-cd dennisdel
+cd $BLOG_FOLDER
 hugo -v
 
 if [ "$CURRENT_BRANCH" = "master" ]; 
@@ -37,8 +37,7 @@ then
   # Deploy changes
   set -e
 
-  DISTRIBUTION_ID=E2Q31E8QXDW2Z2
-  AWS_BUCKET_NAME=dennisdel.com-cdn
+  DISTRIBUTION_ID=$AWS_DISTRIBUTION_ID
 
   # Copy over pages - not static js/img/css/downloads
   aws s3 sync --acl "public-read" --sse "AES256" public/ s3://$AWS_BUCKET_NAME/ --exclude 'img' --exclude 'js' --exclude 'downloads' --exclude 'css' --exclude 'post'
@@ -51,7 +50,9 @@ then
   # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
   aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256"  public/ s3://$AWS_BUCKET_NAME
 
-  # Invalidate landing page so everything sees new post - warning, first 1K/mo free, then 1/2 cent ea
+  # Invalidate landing page so everything sees new post - warning, first 1K/mo free, then 1/2 cent each.
+  # You might also be wondering - why are we invalidating CSS? That is because we need to apply custom templates during development.
+  # That can be removed in the long-run.
   aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths /index.html / /blog/* /blog/index.html /* /about/* /gear/* /speaking/* /css/*
 else
   echo "Not master - we don't need a deployment, just validated the content."
