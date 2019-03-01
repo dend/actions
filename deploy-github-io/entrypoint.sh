@@ -15,13 +15,17 @@ hugo version
 git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$LOCAL_THEME_GIT_URL $LOCAL_THEME_LOCATION
 git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$BLOG_PUBLISH_URL $BLOG_PUBLISH_LOCATION
 
+
 cd $BLOG_FOLDER
 hugo -v
 
 if [ "$CURRENT_BRANCH" = "master" ]; 
 then
-  rm -r $BLOG_PUBLISH_LOCATION
-  cp -a /public/. ../$BLOG_PUBLISH_LOCATION/
+  git config --global user.email $GIT_EMAIL
+  git config --global user.name $GIT_NAME
+
+  rm -rf $BLOG_PUBLISH_LOCATION/*
+  cp -a public/. ../$BLOG_PUBLISH_LOCATION/
   cd ../$BLOG_PUBLISH_LOCATION
   git add .
   git commit -m "Update content."
