@@ -21,7 +21,9 @@ hugo -v
 if [ "$CURRENT_BRANCH" = "master" ]; 
 then
   rm -r $BLOG_PUBLISH_LOCATION
-  cp -a /public/. $BLOG_PUBLISH_LOCATION/
+  cp -a /public/. ../$BLOG_PUBLISH_LOCATION/
+  cd ../$BLOG_PUBLISH_LOCATION
+  git add .
   git commit -m "Update content."
   git push
 else
