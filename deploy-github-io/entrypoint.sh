@@ -21,8 +21,8 @@ hugo -v
 
 if [ "$CURRENT_BRANCH" = "master" ]; 
 then
-  git config --global user.email $GIT_EMAIL
-  git config --global user.name $GIT_NAME
+  git config --global user.email "$GIT_EMAIL"
+  git config --global user.name "$GIT_NAME"
 
   rm -rf $BLOG_PUBLISH_LOCATION/*
   cp -a public/. ../$BLOG_PUBLISH_LOCATION/
