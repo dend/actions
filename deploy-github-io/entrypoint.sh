@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 apt-get update
-apt-get install -y python-setuptools wget python-pip git
+apt-get install -y wget git
 
 CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
 
