@@ -4,7 +4,7 @@ apt-get update
 apt-get install -y wget git
 apt-get install -y nodejs npm
 
-npm install css-minify
+npm install css-minify -g
 
 CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
 
