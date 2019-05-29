@@ -2,6 +2,9 @@
 
 apt-get update
 apt-get install -y wget git
+apt-get install -y nodejs npm
+
+npm install css-minify
 
 CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
 
@@ -24,6 +27,8 @@ then
   git config --global user.email "$GIT_EMAIL"
   git config --global user.name "$GIT_NAME"
 
+  css-minify -d public/css
+  
   rm -rf $BLOG_PUBLISH_LOCATION/*
   cp -a public/. ../$BLOG_PUBLISH_LOCATION/
   cd ../$BLOG_PUBLISH_LOCATION
