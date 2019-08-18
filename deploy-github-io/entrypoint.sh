@@ -6,8 +6,6 @@ apt-get install -y nodejs npm
 
 npm install uglifycss -g
 
-CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
-
 wget $HUGO_URL
 
 yes | dpkg -i hugo*.deb
@@ -22,29 +20,21 @@ git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$BLOG_PUBLISH_URL $BLOG_
 cd $BLOG_FOLDER
 hugo -v
 
-if [ "$CURRENT_BRANCH" = "master" ]; 
-then
-  git config --global user.email "$GIT_EMAIL"
-  git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+git config --global user.name "$GIT_NAME"
 
-  find public/css/ -type f \
-    -name "*.css" ! -name "*.min.*" \
-    -exec echo {} \; \
-    -exec uglifycss --output {}.min {} \; \
-    -exec rm {} \; \
-    -exec mv {}.min {} \;
-  
-  rm -rf $BLOG_PUBLISH_LOCATION/*
-  cp -a public/. ../$BLOG_PUBLISH_LOCATION/
-  cd ../$BLOG_PUBLISH_LOCATION
-  git add .
-  git commit -m "Update content."
-  git push
-else
-  echo "Not master - we don't need a deployment, just validated the content."
-fi
+find public/css/ -type f \
+  -name "*.css" ! -name "*.min.*" \
+  -exec echo {} \; \
+  -exec uglifycss --output {}.min {} \; \
+  -exec rm {} \; \
+  -exec mv {}.min {} \;
+
+rm -rf $BLOG_PUBLISH_LOCATION/*
+cp -a public/. ../$BLOG_PUBLISH_LOCATION/
+cd ../$BLOG_PUBLISH_LOCATION
+git add .
+git commit -m "Update content."
+git push
 
 git branch
-
-echo "Current branch:"
-echo $CURRENT_BRANCH
