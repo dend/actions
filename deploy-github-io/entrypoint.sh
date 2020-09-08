@@ -23,12 +23,12 @@ hugo -v
 git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
 
-find public/css/ -type f \
-  -name "*.css" ! -name "*.min.*" \
-  -exec echo {} \; \
-  -exec uglifycss --output {}.min {} \; \
-  -exec rm {} \; \
-  -exec mv {}.min {} \;
+# find public/css/ -type f \
+#   -name "*.css" ! -name "*.min.*" \
+#   -exec echo {} \; \
+#   -exec uglifycss --output {}.min {} \; \
+#   -exec rm {} \; \
+#   -exec mv {}.min {} \;
 
 rm -rf $BLOG_PUBLISH_LOCATION/*
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
