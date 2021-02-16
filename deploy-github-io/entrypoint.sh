@@ -24,7 +24,7 @@ git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
 
 echo "Removing content..."
-rm -rf !(CNAME) ../$BLOG_PUBLISH_LOCATION/*
+rm -rf ../$BLOG_PUBLISH_LOCATION/*
 echo "Content removal completed."
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
 cd ../$BLOG_PUBLISH_LOCATION
