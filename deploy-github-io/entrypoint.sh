@@ -1,5 +1,5 @@
 #!/bin/bash -l
-# shopt -s extglob
+shopt -s extglob
 
 apt-get update
 apt-get install -y wget git
@@ -24,7 +24,7 @@ git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
 
 echo "Removing content..."
-rm -rf ../$BLOG_PUBLISH_LOCATION/* -v !("CNAME")
+rm -rf ../$BLOG_PUBLISH_LOCATION/* !("CNAME")
 echo "Content removal completed."
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
 cd ../$BLOG_PUBLISH_LOCATION
