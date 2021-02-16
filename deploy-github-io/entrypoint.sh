@@ -30,7 +30,9 @@ git config --global user.name "$GIT_NAME"
 #   -exec rm {} \; \
 #   -exec mv {}.min {} \;
 
+echo "Removing content..."
 rm -rf $BLOG_PUBLISH_LOCATION/*
+echo "Content removal completed."
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
 cd ../$BLOG_PUBLISH_LOCATION
 git add .
