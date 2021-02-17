@@ -18,6 +18,8 @@ if [ -z ${LOCAL_THEME_GIT_URL+x} ]; then echo "No theme specified."; else git cl
 git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$BLOG_PUBLISH_URL $BLOG_PUBLISH_LOCATION --depth 1
 
 cd $BLOG_FOLDER
+echo "Checking content of local folder."
+ls
 hugo -v
 
 git config --global user.email "$GIT_EMAIL"
