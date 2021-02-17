@@ -28,6 +28,8 @@ rm -rf ../$BLOG_PUBLISH_LOCATION/!("CNAME")
 echo "Content removal completed."
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
 cd ../$BLOG_PUBLISH_LOCATION
+echo "In blog publishing folder."
+ls
 git add .
 git commit -m "Update content."
 git push
