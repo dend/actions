@@ -1,10 +1,10 @@
 #!/bin/bash -l
 
 apt-get update
-apt-get install -y wget git
+apt-get install -y wget git curl
 
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs
 
 npm install uglifycss -g
 npm i -D postcss postcss-cli
