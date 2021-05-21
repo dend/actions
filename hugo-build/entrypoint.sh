@@ -21,12 +21,4 @@ hugo -v
 git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
 
-echo "Inspecting blog location contents:"
-ls ../$BLOG_PUBLISH_LOCATION
-echo "Removing content..."
-rm -rf ../$BLOG_PUBLISH_LOCATION/!("CNAME"|".git")
-echo "Content removal completed."
-cp -a public/. ../$BLOG_PUBLISH_LOCATION/
-cd ../$BLOG_PUBLISH_LOCATION
-echo "In blog publishing folder."
 ls
