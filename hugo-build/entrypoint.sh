@@ -1,5 +1,4 @@
 #!/bin/bash -l
-shopt -s extglob
 
 apt-get update
 apt-get install -y wget git
