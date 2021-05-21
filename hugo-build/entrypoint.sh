@@ -7,7 +7,8 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
 
 npm install -g uglifycss
-npm install -g postcss postcss-cli @fullhuman/postcss-purgecss
+npm install -g postcss postcss-cli
+npm install -g @fullhuman/postcss-purgecss postcss
 
 wget $HUGO_URL
 
