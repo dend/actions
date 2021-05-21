@@ -5,7 +5,7 @@ apt-get install -y wget git
 apt-get install -y nodejs npm
 
 npm install uglifycss -g
-npm install postcss-cli -g
+npm i -D postcss postcss-cli
 
 wget $HUGO_URL
 
