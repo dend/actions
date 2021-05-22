@@ -21,8 +21,9 @@ yes | dpkg -i hugo*.deb
 hugo version
 
 cd $BLOG_FOLDER
-npm i -D @fullhuman/postcss-purgecss postcss --loglevel verbose
-npm install postcss-import
+cd themes/$THEME_FOLDER
+npm install
+cd ../..
 echo "Checking content of local folder."
 ls
 hugo -v
