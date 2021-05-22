@@ -25,6 +25,7 @@ cd $BLOG_FOLDER
 npm run dev
 npm install --loglevel verbose
 npm install postcss-cli postcss -g --loglevel verbose
+npm install tailwindcss
 
 echo "Checking content of local folder."
 ls
