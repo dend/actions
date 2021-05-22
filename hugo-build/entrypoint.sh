@@ -23,7 +23,6 @@ hugo version
 cd $BLOG_FOLDER
 npm install
 npm install postcss-cli postcss -g
-cd ../..
 echo "Checking content of local folder."
 ls
 hugo -v
