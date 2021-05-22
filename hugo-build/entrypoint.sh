@@ -21,6 +21,8 @@ yes | dpkg -i hugo*.deb
 hugo version
 
 cd $BLOG_FOLDER
+
+npm run dev
 npm install -d --loglevel verbose
 npm install postcss-cli postcss -g --loglevel verbose
 
