@@ -21,8 +21,9 @@ yes | dpkg -i hugo*.deb
 hugo version
 
 cd $BLOG_FOLDER
-npm install
-npm install postcss-cli postcss -g
+npm install --loglevel verbose
+npm install postcss-cli postcss -g --loglevel verbose
+
 echo "Checking content of local folder."
 ls
 hugo -v
