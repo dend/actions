@@ -21,8 +21,8 @@ yes | dpkg -i hugo*.deb
 hugo version
 
 cd $BLOG_FOLDER
-cd themes/$THEME_FOLDER
 npm install
+npm install postcss-cli postcss -g
 cd ../..
 echo "Checking content of local folder."
 ls
