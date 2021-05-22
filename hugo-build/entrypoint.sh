@@ -11,7 +11,7 @@ npm install -g uglifycss
 echo "Installing PostCSS"
 npm install -g postcss postcss-cli
 echo "Installing PurgeCSS"
-npm install -g @fullhuman/postcss-purgecss postcss
+npm install -g @fullhuman/postcss-purgecss
 
 wget $HUGO_URL
 
@@ -20,11 +20,9 @@ yes | dpkg -i hugo*.deb
 hugo version
 
 cd $BLOG_FOLDER
+npm i -D @fullhuman/postcss-purgecss postcss
 echo "Checking content of local folder."
 ls
 hugo -v
-
-git config --global user.email "$GIT_EMAIL"
-git config --global user.name "$GIT_NAME"
 
 ls
