@@ -1,4 +1,4 @@
-# Actions
+# Actions [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://den.dev/ukraine)
 
 A collection of useful GitHub Actions. Most of them are used in some shape or form in one of my personal projects.
 
