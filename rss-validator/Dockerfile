@@ -9,6 +9,9 @@ LABEL "repository"="https://github.com/dend/actions"
 LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
+RUN apt-get update \
+    && apt-get install curl -y
+
 ADD entrypoint.sh /entrypoint.sh
 
 RUN ["chmod", "+x", "/entrypoint.sh"]
