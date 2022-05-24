@@ -10,4 +10,7 @@ LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
 ADD entrypoint.sh /entrypoint.sh
+
+RUN ["chmod", "+x", "/entrypoint.sh"]
+
 ENTRYPOINT ["/entrypoint.sh"]
