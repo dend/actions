@@ -5,9 +5,9 @@ LABEL "com.github.actions.description"="Publishes a Hugo blog to GitHub.io."
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="https://github.com/dend/blog"
+LABEL "repository"="https://github.com/dend/actions"
 LABEL "homepage"="https://den.dev"
-LABEL "maintainer"="Den <d@dsc.ai>"
+LABEL "maintainer"="Den <noreply@den.dev>"
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

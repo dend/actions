@@ -5,9 +5,9 @@ LABEL "com.github.actions.description"="Generates TypeScript API documentation f
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="https://github.com/dend/docs-with-actions"
-LABEL "homepage"="https://dennisdel.com"
-LABEL "maintainer"="Den <dend@outlook.com>"
+LABEL "repository"="https://github.com/dend/actions"
+LABEL "homepage"="https://den.dev"
+LABEL "maintainer"="Den <noreply@den.dev>"
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
