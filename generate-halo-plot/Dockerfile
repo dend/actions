@@ -10,8 +10,9 @@ LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
 ADD entrypoint.sh /entrypoint.sh
-ADD requirements.txt /requirements.txt
-ADD plotgen.py /plotgen.py
+
+COPY requirements.txt /requirements.txt
+COPY plotgen.py /plotgen.py
 
 RUN apt-get update \
     && apt-get install python3 python3-pip python3-venv -y \
