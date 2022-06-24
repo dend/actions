@@ -10,7 +10,7 @@ LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
 RUN apt-get update \
-    && apt-get install python3 python3-pip
+    && apt-get install python3 python3-pip -y
 
 ADD entrypoint.sh /entrypoint.sh
 ADD requirements.txt /requirements.txt
