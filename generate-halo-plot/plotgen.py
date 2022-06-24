@@ -13,7 +13,8 @@ arguments = sys.argv[1:]
 print('Started with the following arguments:')
 print(arguments)
 
-source_folder = arguments[0]
+source_folder = os.environ['SOURCE_FOLDER']
+
 print(f'Source folder: {source_folder}')
 
 game_data_path = os.path.join(source_folder, 'data')
@@ -31,7 +32,7 @@ for file in os.listdir(game_data_path):
 				print(f'Data is related to {asset_type} asset {asset_id} with version {asset_version_id}.')
 
 				df = pd.read_csv(stats_path, sep='\t', parse_dates=['SnapshotTime'])
-				
+
 				plt.rcParams['figure.figsize'] = [17, 10]
 				plt.rcParams['font.size']=12                
 				plt.rcParams['savefig.dpi']=100             

@@ -9,19 +9,14 @@ LABEL "repository"="https://github.com/dend/actions"
 LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
-ADD entrypoint.sh /entrypoint.sh
-
 COPY requirements.txt /requirements.txt
 COPY plotgen.py /plotgen.py
 
 RUN ls
 
 RUN apt-get update \
-    && apt-get install python3 python3-pip python3-venv -y \
-    && chmod +x entrypoint.sh
+    && apt-get install python3 python3-pip -y
 
-RUN python3 -m venv .env \
-    && source .env/bin/activate \
-    && pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["python3", "/plotgen.py"]
