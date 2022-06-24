@@ -9,11 +9,12 @@ LABEL "repository"="https://github.com/dend/actions"
 LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
-RUN apt-get update \
-    && apt-get install python3 python3-pip -y
-
 ADD entrypoint.sh /entrypoint.sh
 ADD requirements.txt /requirements.txt
 ADD plotgen.py /plotgen.py
+
+RUN apt-get update \
+    && apt-get install python3 python3-pip -y \
+    chmod +x entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
