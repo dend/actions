@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/dend/actions"
 LABEL "homepage"="https://den.dev"
 LABEL "maintainer"="Den <noreply@den.dev>"
 
-UN apt-get update \
+RUN apt-get update \
     && apt-get install python3 python3-pip
 
 ADD entrypoint.sh /entrypoint.sh
