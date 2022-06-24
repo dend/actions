@@ -14,7 +14,7 @@ ADD requirements.txt /requirements.txt
 ADD plotgen.py /plotgen.py
 
 RUN apt-get update \
-    && apt-get install python3 python3-pip -y \
+    && apt-get install chmod python3 python3-pip -y \
     chmod +x entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
