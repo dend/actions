@@ -3,7 +3,7 @@
 ls
 
 python3 -m venv .env
-source .env/scripts/activate
+source .env/bin/activate
 
 pip install -r requirements.txt
 
