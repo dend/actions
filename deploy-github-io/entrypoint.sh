@@ -27,7 +27,7 @@ wget $HUGO_URL
 
 yes | dpkg -i hugo*.deb || echo "::warning::dpkg encountered a non-critical issue."
 
-hugo build --verbose
+hugo build
 
 # Make sure we have the latest theme.
 if [ -z ${LOCAL_THEME_GIT_URL+x} ]; then echo "No theme specified."; else git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$LOCAL_THEME_GIT_URL $LOCAL_THEME_LOCATION --depth 1; fi
