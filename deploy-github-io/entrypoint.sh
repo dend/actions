@@ -9,7 +9,8 @@ handle_error() {
     local lineno=$1
     local exit_code=$2
     local command="${BASH_COMMAND}"
-    echo "::error file=${BASH_SOURCE[1]},line=$lineno::Command '$command' failed with exit code $exit_code"
+    local error_message=$(tail -n 1 /tmp/error_log || echo "No error message captured")
+    echo "::error file=${BASH_SOURCE[1]},line=$lineno::Command '$command' failed with exit code $exit_code. Error: $error_message"
     exit $exit_code
 }
 
