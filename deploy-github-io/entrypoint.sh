@@ -14,6 +14,9 @@ handle_error() {
     exit $exit_code
 }
 
+# Redirect stderr to a log file for capturing error messages
+exec 2>/tmp/error_log
+
 apt-get update
 apt-get install -y wget git
 apt-get install -y nodejs npm
