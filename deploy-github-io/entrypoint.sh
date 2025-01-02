@@ -25,7 +25,7 @@ npm install uglifycss -g
 
 wget $HUGO_URL
 
-yes | dpkg -i hugo*.deb
+yes | dpkg -i hugo*.deb || echo "::warning::dpkg encountered a non-critical issue."
 
 hugo version
 
