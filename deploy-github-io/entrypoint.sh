@@ -27,7 +27,7 @@ wget $HUGO_URL
 
 yes | dpkg -i hugo*.deb || echo "::warning::dpkg encountered a non-critical issue."
 
-hugo version
+hugo verbose
 
 # Make sure we have the latest theme.
 if [ -z ${LOCAL_THEME_GIT_URL+x} ]; then echo "No theme specified."; else git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$LOCAL_THEME_GIT_URL $LOCAL_THEME_LOCATION --depth 1; fi
@@ -36,7 +36,7 @@ git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$BLOG_PUBLISH_URL $BLOG_
 cd $BLOG_FOLDER
 echo "Checking content of local folder."
 ls
-hugo version
+hugo --verbose
 
 git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
