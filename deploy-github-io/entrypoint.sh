@@ -1,4 +1,6 @@
 #!/bin/bash -l
+set -e  # Exit on errors
+set -o pipefail  # Ensure pipeline failures are detected
 shopt -s extglob
 
 apt-get update
