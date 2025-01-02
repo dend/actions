@@ -44,7 +44,9 @@ git config --global user.name "$GIT_NAME"
 echo "Inspecting blog location contents:"
 ls ../$BLOG_PUBLISH_LOCATION
 echo "Removing content..."
-rm -rf ../$BLOG_PUBLISH_LOCATION/!("CNAME"|".git")
+for item in ../$BLOG_PUBLISH_LOCATION/!(CNAME|.git); do
+    [ -e "$item" ] && rm -rf "$item"  # Check if the item exists before removing
+done
 echo "Content removal completed."
 cp -a public/. ../$BLOG_PUBLISH_LOCATION/
 cd ../$BLOG_PUBLISH_LOCATION
