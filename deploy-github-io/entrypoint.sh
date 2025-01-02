@@ -8,7 +8,8 @@ trap 'handle_error $LINENO $?' ERR
 handle_error() {
     local lineno=$1
     local exit_code=$2
-    echo "::error file=${BASH_SOURCE[1]},line=$lineno::Command failed with exit code $exit_code"
+    local command="${BASH_COMMAND}"
+    echo "::error file=${BASH_SOURCE[1]},line=$lineno::Command '$command' failed with exit code $exit_code"
     exit $exit_code
 }
 
