@@ -3,6 +3,15 @@ set -e  # Exit on errors
 set -o pipefail  # Ensure pipeline failures are detected
 shopt -s extglob
 
+trap 'handle_error $LINENO $?' ERR
+
+handle_error() {
+    local lineno=$1
+    local exit_code=$2
+    echo "::error file=${BASH_SOURCE[1]},line=$lineno::Command failed with exit code $exit_code"
+    exit $exit_code
+}
+
 apt-get update
 apt-get install -y wget git
 apt-get install -y nodejs npm
