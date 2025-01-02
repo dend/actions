@@ -36,7 +36,7 @@ git clone --progress --verbose https://$BLOG_DEPLOY_KEY@$BLOG_PUBLISH_URL $BLOG_
 cd $BLOG_FOLDER
 echo "Checking content of local folder."
 ls
-hugo -v
+hugo version
 
 git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_NAME"
